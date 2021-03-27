@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from yob.views import *
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/login/', loginView),
+    path('account/register/', registerView),
+    path('courses/create/', createCourse),
+    path('courses/get/', getCourses),
+    path('courses/join/', joinCourse),
+
 ]
