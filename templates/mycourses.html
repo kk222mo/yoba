@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/main2.css">
+    <script src="/static/scripts.js"></script>
+    <title>Мои курсы</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="left-aside">
+            <div class="header">
+                <img src="/static/logo.jpg" alt="" class="logo">
+            </div>
+            <div class="aside-menu">
+                <a href="/">Все курсы</a>
+                <a href="/mycourses/" class="active">Мои курсы</a>
+                <a href="">Расписание</a>
+                <a href="">Учителя</a>
+            </div>
+        </div>
+
+        <div class="central">
+            <div class="header">
+                <input type="text" class="search" placeholder="Поиск"/>
+            </div>
+
+            <div class="course-list">
+                {% for course in courses %}
+                    <div class="course-item">
+                        <span style="display: none" class="tags">{{ course.tags }}</span>
+                        <div class="course-meta">
+                            <div class="course-title">{{ course.title }}</div>
+                            <div class="course-rating">4,5<i class="fas fa-star"></i></div>
+                        </div>
+                        <div class="course-description">{{ course.description }}</div>
+                        <div class="course-footer">
+                            <div class="footer-block">
+                                <div class="course-subscribers">
+                                    <div class="avatars">
+                                        {% for i in course.count_cropped %}
+                                            <img class="user-avatar" src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg"/>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="count"><span>{{ course.count }}</span> человек</div>
+                                </div>
+                                <div class="course-leader">
+                                    <img src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg" alt="" class="user-avatar">
+                                    <div class="full-name">{{ course.name }}</div>
+                                </div>
+                            </div>
+                            <div class="footer-block">
+                                <a href="/course/{{ course.token }}/" class="course-details">
+                                    <button>Подробнее</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="right-aside">
+            <div class="header">
+                <div class="control-menu">
+                    <a href="/account/logout/">Log out</a>
+                    <img class="user-avatar" src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg"/>
+                </div>
+            </div>
+            <div class="filters">
+                <div class="filter">
+                    <div class="filter-title">Направление</div>
+                    <div class="filter-body">
+                        <div class="filter-line">
+                            <input type="checkbox" id="val1" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val1" class="label-for-checkbox">программирование</label>
+                        </div>
+                        <div class="filter-line">
+                            <input type="checkbox" id="val2" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val2" class="label-for-checkbox">спорт</label>
+                        </div>
+                        <div class="filter-line">
+                            <input type="checkbox" id="val3" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val3" class="label-for-checkbox">литература</label>
+                        </div>
+                        <div class="filter-line">
+                            <input type="checkbox" id="val4" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val4" class="label-for-checkbox">живопись</label>
+                        </div>
+                        <div class="filter-line">
+                            <input type="checkbox" id="val5" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val5" class="label-for-checkbox">танцы</label>
+                        </div>
+                        <div class="filter-line">
+                            <input type="checkbox" id="val6" value="Value" onchange="update_data();" class="blue-cb">
+                            <label for="val6" class="label-for-checkbox">история</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="filter-title">Дни занятий</div>
+                    <div class="filter-body">
+                        <div class="filter-row">
+                            <div class="day-filter selected">Пн</div>
+                            <div class="day-filter">Вт</div>
+                            <div class="day-filter unavail">Ср</div>
+                        </div>
+                        <div class="filter-row">
+                            <div class="day-filter selected">Чт</div>
+                            <div class="day-filter">Пт</div>
+                            <div class="day-filter unavail">Сб</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

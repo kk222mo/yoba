@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+.form {
+    font-family: 'Segoe UI Light';
+    font-size: 1.2rem;
+    color: #ADADAD;
+}
+
+.form a {
+    color: #1C7CC5;
+    text-decoration: none;
+}
+
+.form a:visited {
+    color: #1C7CC5;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.nondv, .form {
+    max-width: 555px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inner-block, .form, .form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Segoe UI';
+    font-weight: lighter;
+    color: #6D6D6D;
+    font-size: 1.9rem;
+}
+
+input {
+    height: 60px;
+    width: 340px;
+    border: none;
+    text-indent: 40px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    color: #ADADAD;
+}
+
+.mt-40px {
+    margin-top: 40px;
+}
+
+.mt-20px {
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 0;
+    background-color: white;
+    border: 1px solid #5A5A5A;
+    color: #5A5A5A;
+    width: 340px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+
+
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: 'Roboto Light';
+  }
+  input::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'Roboto Light';
+  }
+  input:-ms-input-placeholder { /* IE 10+ */
+    font-family: 'Roboto Light';
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    font-family: 'Roboto Light';
+  }
+
+
+.bordered {
+    width: 50%;
+    border-right: 1px solid #D8D8D8;
+    height: 220px;
+}
+
+.separator {
+    width: 340px;
+    align-items: center;
+    display: flex;  
+}
+
+.subtitle {
+    font-family: 'Segoe UI';
+    font-weight: lighter;
+    color: #B1B1B1;
+    font-size: 1.2rem;
+}

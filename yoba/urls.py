@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
 from yob.views import *
 
@@ -22,8 +22,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/login/', loginView),
     path('account/register/', registerView),
+    path('account/logout/', logoutView),
     path('courses/create/', createCourse),
-    path('courses/get/', getCourses),
+    path('courses/getUserCourses/', getMyCourses),
+    path('courses/getAll/', getAllCourses),
     path('courses/join/', joinCourse),
+    path('reviews/post/', postReview),
+    path('reviews/get/', getReviews),
+    path('', index),
+    path('mycourses/', my_courses),
+    re_path(r'^course/(?P<token>[0-9a-zA-Z]+)/$', courseInfo),
+
 
 ]

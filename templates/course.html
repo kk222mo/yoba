@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/main2.css">
+    <script src="/static/scripts.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Курс "{{ course.title }}"</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="left-aside">
+        <div class="header">
+            <img src="/static/logo.jpg" alt="" class="logo">
+        </div>
+        <div class="aside-menu">
+            <a href="/">Все курсы</a>
+            <a href="/mycourses/">Мои курсы</a>
+            <a href="">Расписание</a>
+            <a href="">Учителя</a>
+        </div>
+    </div>
+
+    <div class="central">
+        <div class="header">
+            <input type="text" class="search" placeholder="Поиск"/>
+        </div>
+
+        <div class="course">
+            <div class="course-title">{{ course.title }}</div>
+            <div class="course-description">
+                <p class="par-t1">{{ course.description }}</p>
+            </div>
+            <div class="course-block top-separated">
+                <div class="comm-block">
+                    <div class="block-title subtitle-t1">Отзывы <span class="subtitle-t2">{{ course.reviews_count }}</span></div>
+                    <!--<div class="comm">
+                        <div class="comm-author">
+                            <img src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg" alt="" class="user-avatar">
+                            <div class="full-name">{{ course.name }}</div>
+                        </div>
+                        <div class="comm-content par-t1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur exercitationem magni quod. Commodi culpa est, facilis fugiat illo impedit ipsum, laudantium nemo neque nihil obcaecati odio provident qui quisquam, voluptate.</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-aside">
+        <div class="header">
+            <div class="control-menu">
+                <a href="/account/logout/">Log out</a>
+                <img class="user-avatar" src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg"/>
+            </div>
+        </div>
+        <div class="course-meta">
+            <a class="course-sub-button"><button onclick="join_unjoin('{{course.token}}');">{% if is_subscribed %} Отписаться {% else %} Подписаться {% endif %}</button></a>
+            <div class="meta-block">
+                <div class="meta-title subtitle-t1">Преподаватели</div>
+                <div class="meta-content">
+                    <div class="course-teacher">
+                        <img src="http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg" alt="" class="user-avatar">
+                        <div class="full-name">{{ course.name }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="meta-inline">
+                <div class="block-title subtitle-t1">Ученики <span class="subtitle-t2">{{ course.count }}</span></div>
+            </div>
+            <a class="get-qr-code" id="qr">Получить QR-код</a>
+            <canvas id="qrcanv"></canvas>
+            <script>
+                document.getElementById('qr').onclick = function() {
+                const qrCode = new QRCodeStyling({
+                    width: 200,
+                    height: 200,
+                    data: window.location.href
+                });
+                qrCode.append(document.getElementById('qrcanv'));
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/40c5eaaca0.js" crossorigin="anonymous"></script>
+</body>
+</html>
